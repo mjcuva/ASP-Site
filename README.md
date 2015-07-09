@@ -10,4 +10,6 @@ Steps for running Locally:
 4. `npm start`
 5. [http://localhost:3000](http://localhost:3000)
 
-Cory: Wanna use less or sass? I also think finding a way to use something like Gulp would be cool.
+Cory: I also think finding a way to use something like Gulp would be cool.
+
+[https://travismaynard.com/writing/getting-started-with-gulp](https://travismaynard.com/writing/getting-started-with-gulp)
