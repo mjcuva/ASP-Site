@@ -5,6 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// Added includes 
+var mongoose = require('mongoose');
+var config = require('./config');
+
+var uristring = config.MONGO_MAIN;
+
+mongoose.connect(uristring, function(err, res){
+  if (err) {
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connecting to: ' + uristring);
+  }
+});
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -21,9 +35,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/', routes);
-app.use('/users', users);
+// Catchall so Angular can do the rest of the routing
+app.all("/*", function(req, res, next) {
+
+  res.sendFile("index.html", { root: __dirname + "/views" });
+        
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
