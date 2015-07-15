@@ -1,6 +1,6 @@
 # Alpha Sigma Phi Rho Colony Website
 
-Need to install  [https://www.mongodb.org/](mongodb) seperately
+Need to install  [mongodb](https://www.mongodb.org/) seperately
 
 Steps for running Locally: 
 
@@ -19,4 +19,4 @@ Stuff we need on the backend
 * Way to handle images (Could we maybe use s3?, I think we did something similar with the echo spot)
 * What should we do with contact information that gets entered?
 
-[https://github.com/johnpapa/angular-styleguide](Angular Best Practices)
+[Angular Best Practices](https://github.com/johnpapa/angular-styleguide)
