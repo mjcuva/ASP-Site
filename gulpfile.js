@@ -36,6 +36,7 @@ gulp.task('minify-css', function(){
 
 gulp.task('watch', function(){
     gulp.watch(jsDir, ['lint', 'scripts', 'minify-css']);
+    gulp.watch(cssDir, ["minify-css"]);
 });
 
 
