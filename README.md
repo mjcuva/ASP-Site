@@ -13,8 +13,8 @@ Steps for running Locally:
 
 
 Stuff we need on the backend
-    * Users
-    * "Modules" - Text, Title and image that will show up on the front page beneath the hero image
-    * Post - Something that can show up on a news page
-    * Way to handle images (Could we maybe use s3?, I think we did something similar with the echo spot)
-    * What should we do with contact information that gets entered?
+* Users
+* "Modules" - Text, Title and image that will show up on the front page beneath the hero image
+* Post - Something that can show up on a news page
+* Way to handle images (Could we maybe use s3?, I think we did something similar with the echo spot)
+* What should we do with contact information that gets entered?
