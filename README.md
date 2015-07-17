@@ -12,11 +12,25 @@ Steps for running Locally:
 6. [http://localhost:3000](http://localhost:3000)
 
 
-Stuff we need on the backend
-* Users
-* "Modules" - Text, Title and image that will show up on the front page beneath the hero image
-* Post - Something that can show up on a news page
-* Way to handle images (Could we maybe use s3?, I think we did something similar with the echo spot)
-* What should we do with contact information that gets entered?
+Models
+* Users (Gonna just use the same code from the treasurer site)
+* Modules
+    - Title
+    - Text
+    - ImageURL
+* Post 
+    - Title
+    - Text
+    - Image (Optional)
+* Gallery
+    - Title
+    - Images
+* Image (Link to s3)
+    - Title (Default to image name)
+    - URL
+* PNM (For more information form)
+    - Name
+    - Email
+    - Year in School
 
 [Angular Best Practices](https://github.com/johnpapa/angular-styleguide)
