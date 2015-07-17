@@ -9,8 +9,20 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 
+// Include Models Here
+require('./models/user');
+require('./models/module');
+require('./models/pnm');
+
+// Include API Endpoints
+var usersAPI = require('./api/users');
+var loginAPI = require('./api/login');
+var modulesAPI = require('./api/modules');
+var pnmAPI = require('./api/pnms');
+
 var uristring = config.MONGO_MAIN;
 
+// Database connection
 mongoose.connect(uristring, function(err, res){
   if (err) {
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);
@@ -18,12 +30,6 @@ mongoose.connect(uristring, function(err, res){
     console.log ('Succeeded connecting to: ' + uristring);
   }
 });
-
-// Include Models Here
-require('./models/user');
-
-var usersAPI = require('./api/users');
-var loginAPI = require('./api/login')
 
 var app = express();
 
@@ -40,21 +46,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
+// Register API Endpoints
 app.use('/api/users', usersAPI);
 app.use('/api/login', loginAPI);
+app.use('/api/modules', modulesAPI);
+app.use('/api/pnms', pnmAPI);
 
 // Catchall so Angular can do the rest of the routing
 app.all("/*", function(req, res, next) {
 
   res.sendFile("index.html", { root: __dirname + "/views" });
         
-});
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
 });
 
 // error handlers
