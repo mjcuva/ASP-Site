@@ -19,8 +19,11 @@ mongoose.connect(uristring, function(err, res){
   }
 });
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// Include Models Here
+require('./models/user');
+
+var usersAPI = require('./api/users');
+var loginAPI = require('./api/login')
 
 var app = express();
 
@@ -36,6 +39,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+
+app.use('/api/users', usersAPI);
+app.use('/api/login', loginAPI);
 
 // Catchall so Angular can do the rest of the routing
 app.all("/*", function(req, res, next) {
