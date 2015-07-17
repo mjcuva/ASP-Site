@@ -34,3 +34,13 @@ Models
     - Year in School
 
 [Angular Best Practices](https://github.com/johnpapa/angular-styleguide)
+
+# Style Guide
+
+## Node
+
+* require statements go at the top
+* Models must be uppercase
+    - Ex. var User = mongoose.model('User');
+* Must follow strict JS
+    - Gulp linter will catch this stuff
