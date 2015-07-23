@@ -11,6 +11,7 @@ Steps for running Locally:
 5. `npm start`
 6. [http://localhost:3000](http://localhost:3000)
 
+`npm test` runs tests
 
 Models
 * Users (Gonna just use the same code from the treasurer site)

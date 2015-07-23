@@ -74,7 +74,6 @@ describe('Users', function(){
                 .end(function(err, res){
                     user = res.body[0];
                     user.pwset.should.equal(true);
-                    console.log(user);
                     done();
                 });
             });
