@@ -15,7 +15,9 @@ router.post('/', function(req, res, next){
     var pass = req.body.pass;
 
     User.login(email, pass, function(err, user, hash){
-        if(err){
+        if(err == "Password needs to be set."){
+            // TODO: Redirect to password set page
+        }else if(err){
             res.render('login', {error: err});
         }else{
             res.cookie('u', hash);
