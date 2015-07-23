@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 // Added includes 
 var mongoose = require('mongoose');
-var config = require('./config');
+var config = require('./config/config');
 
 // Include Models Here
 require('./models/user');

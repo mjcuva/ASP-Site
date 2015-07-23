@@ -25,7 +25,7 @@ Models
 * Gallery
     - Title
     - Images
-* Image (Link to s3)
+* Image (Link to s3) [S3 Node/Heroku Tutorial](https://devcenter.heroku.com/articles/s3-upload-node?utm_source=mkto&utm_medium=email&utm_campaign=marchnewsletter&mkt_tok=3RkMMJWWfF9wsRonuK%2FMZKXonjHpfsX54%2B4vW66%2FlMI%2F0ER3fOvrPUfGjI4AScdnI%2BSLDwEYGJlv6SgFQrjAMapmyLgLUhE%3D)
     - Title (Default to image name)
     - URL
 * PNM (For more information form)
