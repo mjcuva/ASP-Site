@@ -2,14 +2,12 @@ var should = require('should');
 var request = require('supertest');
 var mongoose = require('mongoose');
 
-var config = require('../config');
+var config = require('../config/config');
 var app = require('../app.js');
 
 var PNM = mongoose.model('PNM');
 
 describe('PNMS', function(){
-
-
 
     before(function(done){
         mongoose.disconnect(function(err){
@@ -58,7 +56,7 @@ describe('PNMS', function(){
         });
     });
 
-    it("Should have one budget", function(done){
+    it("Should have one pnm", function(done){
         request(app)
         .get('/api/pnms')
         .expect(200)
@@ -81,6 +79,38 @@ describe('PNMS', function(){
             res.body.email.should.equal("mjcuva@gmail.com");
             should.not.exist(res.body.yearInSchool);
             done();
+        });
+    });
+
+    it("Should have two pnms", function(done){
+        request(app)
+        .get('/api/pnms')
+        .expect(200)
+        .end(function(err,res){
+            res.body.length.should.equal(2);
+            done();
+        });
+    });
+
+    it("Should delete one pnm", function(done){
+        request(app)
+        .get('/api/pnms')
+        .expect(200)
+        .end(function(err, res){
+            request(app)
+            .delete('/api/pnms')
+            .send({'id':res.body[0]._id})
+            .expect(200)
+            .end(function(err, res){
+                res.text.should.equal('Deleted');
+                request(app)
+                .get('/api/pnms')
+                .expect(200)
+                .end(function(err, res){
+                    res.body.length.should.equal(1);
+                    done();
+                });
+            });
         });
     });
 });
