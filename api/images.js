@@ -5,9 +5,7 @@ var aws = require('aws-sdk');
 var mongoose = require('mongoose');
 var Image = mongoose.model('Image');
 
-var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
-var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
-var S3_BUCKET = process.env.S3_BUCKET
+require('../config/auth.js');
 
 router.get('/', function(req, res, next){
     var image_name = req.query.image_name;
@@ -51,7 +49,7 @@ router.post('/', function(req, res, next){
 });
 
 // Used to create url to save image to aws
-// /sign_s3?file_name&file_type
+// /sign_s3?file_name=name&file_type=type
 router.get('/sign_s3', function(req, res, next){
     var file_name = req.query.file_name;
     var file_type = req.query.file_type;

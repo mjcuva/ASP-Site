@@ -35,7 +35,6 @@ describe('Images', function(){
         request(app)
         .post('/api/images')
         .send(image)
-        .expect(200)
         .end(function(err, res){
             res.status.should.equal(200);
             res.body.name.should.equal("test.jpg");
@@ -48,8 +47,8 @@ describe('Images', function(){
         var image_name = "test.jpg";
         request(app)
         .get('/api/images?image_name='+image_name)
-        .expect(200)
         .end(function(err,res){
+            res.statusCode.should.equal(200);
             res.body.name.should.equal('test.jpg');
             res.body.url.should.equal('http://test.com/image.jpg');
             done();
@@ -61,9 +60,8 @@ describe('Images', function(){
         request(app)
         .post('/api/images')
         .send(image)
-        .expect(200)
         .end(function(err, res){
-            console.log(res.body);
+            res.statusCode.should.equal(200);
             res.body.name.should.equal('test1.jpg');
             res.body.url.should.equal('http://test.com/image2.jpg');
             done();
@@ -75,10 +73,23 @@ describe('Images', function(){
         request(app)
         .post('/api/images')
         .send(image)
-        .expect(200)
         .end(function(err, res){
+            res.statusCode.should.equal(200);
             res.body.name.should.equal('this is a test.jpg');
             done();
-        })
-    })
+        });
+    });
+
+    it("Should create url for image to be posted", function(done){
+        var image = {name: "test.jpg", type:'jpg'};
+        request(app)
+        .get('/api/images/sign_s3?file_name=' + image.name + '&file_type=' + image.type)
+        .end(function(err, res){
+            var jsonResult = JSON.parse(res.text);
+            res.statusCode.should.equal(200);
+            jsonResult['url'].should.equal('https://umnasp-site.s3.amazonaws.com/test.jpg');
+            should.exist(jsonResult['signed_request']);
+            done();
+        });
+    });
 });
