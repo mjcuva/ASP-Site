@@ -15,11 +15,11 @@ Steps for running Locally:
 
 Models
 * Users (Gonna just use the same code from the treasurer site) - Done
-* Modules
+* Modules - Done
     - Title
     - Text
     - ImageURL
-* Post 
+* Post - Done
     - Title
     - Text
     - Image (Optional)

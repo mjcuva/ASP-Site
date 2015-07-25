@@ -14,13 +14,15 @@ require('./models/user');
 require('./models/module');
 require('./models/pnm');
 require('./models/image');
+require('./models/post');
 
 // Include API Endpoints
 var usersAPI = require('./api/users');
 var loginAPI = require('./api/login');
 var modulesAPI = require('./api/modules');
 var pnmAPI = require('./api/pnms');
-var imageAPI = require('./api/images')
+var imageAPI = require('./api/images');
+var postAPI = require('./api/posts');
 
 var uristring = config.MONGO_MAIN;
 
@@ -54,6 +56,7 @@ app.use('/api/login', loginAPI);
 app.use('/api/modules', modulesAPI);
 app.use('/api/pnms', pnmAPI);
 app.use('/api/images', imageAPI);
+app.use('/api/posts', postAPI);
 
 // Catchall so Angular can do the rest of the routing
 app.all("/*", function(req, res, next) {
