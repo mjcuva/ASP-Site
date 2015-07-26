@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var GallerySchema = new mongoose.Schema({
-    title: {type: String, required: true},
-    images: [{type: Schema.Types.ObjectId, ref: 'Image'}]
+    name: {type: String, required: true},
+    images: [{type: mongoose.Schema.Types.ObjectId, ref: 'Image', required: false}]
 });
 
-mongoose.model('Module', GallerySchema);
+mongoose.model('Gallery', GallerySchema);

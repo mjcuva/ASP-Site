@@ -7,6 +7,7 @@ var Image = mongoose.model('Image');
 
 require('../config/auth.js');
 
+// Return image from name
 router.get('/', function(req, res, next){
     var image_name = req.query.image_name;
     if(image_name == null){
