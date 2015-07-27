@@ -11,20 +11,15 @@ angular
             controller: 'homeCtrl',
             controllerAs: 'home'
         }).
-        when('/about', {
-            templateUrl: 'partials/about.html',
-            controller: 'aboutCtrl',
-            controllerAs: 'about'
+        when('/brothers', {
+            templateUrl: 'partials/brothers.html',
+            controller: 'brothersCtrl',
+            controllerAs: 'brothers'
         }).
-        when('/officers', {
-            templateUrl: 'partials/officers.html',
-            controller: 'officersCtrl',
-            controllerAs: 'officers'
-        }).
-        when('/recruitment', {
-            templateUrl: 'partials/recruitment.html',
-            controller: 'recruitmentCtrl',
-            controllerAs: 'recruitment'
+        when('/news', {
+            templateUrl: 'partials/news.html',
+            controller: 'newsCtrl',
+            controllerAs: 'news'
         }).
         otherwise({
             redirectTo: '/'

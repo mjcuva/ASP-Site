@@ -2,10 +2,10 @@
 	'use strict';
 
 	angular.module('ASPControllers')
-		.controller('aboutCtrl', function(){
+		.controller('brothersCtrl', function(){
 			var vm = this;
 
-			vm.test = "About";
+			vm.test = "Brothers";
 
 		});
 
