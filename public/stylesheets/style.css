@@ -1,8 +1,15 @@
 body {
+  height: 100vh;
+  background-size: 100%;
+  background-image: url('/images/WR_Seal.jpg');
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#nav-bar{
+	float: right;
 }

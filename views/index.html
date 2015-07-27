@@ -14,11 +14,13 @@
     <base href='/'>
   </head>
   <body ng-app='asp'>
-    <div>
-      <a href="/">Home</a>
-      <a href="/news">News</a>
-      <a href="/brothers">Brothers</a>
+    <div id="main-wrapper" class="wrapper">
+      <div id="nav-bar">
+        <a class="nav" href="/">Home</a>
+        <a class="nav" href="/news">News</a>
+        <a class="nav" href="/brothers">Brothers</a>
+      </div>
+      <div ng-view></div>
     </div>
-    <div ng-view></div>
   </body>
 </html>
