@@ -7,6 +7,6 @@
 
 			vm.test = "Recruitment";
 
-		}]);
+		});
 
-}());
+})();

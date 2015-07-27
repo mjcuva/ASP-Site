@@ -1,7 +1,8 @@
-(function(){
-    'use strict';
+angular
+    .module('ASPControllers', []);
 
-angular.module('asp', ['ngRoute', 'ASPControllers'])
+angular
+    .module('asp', ['ngRoute', 'ASPControllers'])
     .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){
         $routeProvider.
@@ -10,17 +11,17 @@ angular.module('asp', ['ngRoute', 'ASPControllers'])
             controller: 'homeCtrl',
             controllerAs: 'home'
         }).
-        when('/', {
+        when('/about', {
             templateUrl: 'partials/about.html',
             controller: 'aboutCtrl',
             controllerAs: 'about'
         }).
-        when('/', {
+        when('/officers', {
             templateUrl: 'partials/officers.html',
             controller: 'officersCtrl',
             controllerAs: 'officers'
         }).
-        when('/', {
+        when('/recruitment', {
             templateUrl: 'partials/recruitment.html',
             controller: 'recruitmentCtrl',
             controllerAs: 'recruitment'
@@ -31,7 +32,4 @@ angular.module('asp', ['ngRoute', 'ASPControllers'])
 
         $locationProvider.html5Mode(true);
     }
-    ])
-    .module('ASPControllers', []);
-
-}());
+    ]);
