@@ -40,6 +40,7 @@ TODO: We need to authenticate all non-get api endpoints before launch.
 [Angular Best Practices](https://github.com/johnpapa/angular-styleguide)
 
 # Style Guide
+	- Use controllerAs syntax for all controllers instead of binding properties to $scope.
 
 ## Node
 
