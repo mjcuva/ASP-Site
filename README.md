@@ -15,7 +15,7 @@ Steps for running Locally:
 
 
 API Reference (We really need to authenticate anything that isn't get...)
-
+```
 GET - '/api/users/'
 POST - '/api/users/' BODY: {'email':'mjcuva@gmail.com', 'name':'Marc Cuva', 'admin': true}
 POST - '/api/users/setemail' BODY: {'email', 'name', 'admin', 'id'};
@@ -44,7 +44,7 @@ POST '/api/modules/' BODY: {'title', 'content', 'image_url'}
 DELETE '/api/modules/' BODY: {'_id', _id}
 
 POST '/api/login' BODY: {'email', 'pass'} -- Sets cookie if user credentials are correct
-
+```
 
 Models
 * Users (Gonna just use the same code from the treasurer site) - Done
