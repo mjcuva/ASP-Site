@@ -13,6 +13,39 @@ Steps for running Locally:
 
 `npm test` runs tests
 
+
+API Reference (We really need to authenticate anything that isn't get...)
+
+GET - '/api/users/'
+POST - '/api/users/' BODY: {'email':'mjcuva@gmail.com', 'name':'Marc Cuva', 'admin': true}
+POST - '/api/users/setemail' BODY: {'email', 'name', 'admin', 'id'};
+
+GET '/api/pnms'
+POST '/api/pnms' BODY: {'name', 'email', 'yearInSchool'}
+DELETE '/api/pnms' BODY: {'id':_id};
+
+GET '/api/images?image_name='
+POST '/api/images' BODY: {name: "test.jpg", url: "http://test.com/image.jpg"}
+GET '/api/images/sign_s3?file_name=fname&file_type=jpg'
+
+GET '/api/galleries/'
+GET '/api/galleries/gallery?_id=id'
+POST '/api/galleries/' BODY: {'name': 'Gallery Name'}
+POST '/api/galleries/addimage' BODY: {'imageUrl': 'http://test.com/test.jpg', 'galleryName': 'Test'}
+DELETE '/api/galleries/' BODY: {'galleryID', _id}
+DELETE '/api/galleries/image' BODY: {'galleryName':'Test', 'imageID':_id}
+
+GET '/api/posts/'
+POST '/api/posts/' BODY: {'title', 'content', 'imageUrl'}
+DELETE '/api/posts/' BODY: {'_id':_id}
+
+GET '/api/modules/'
+POST '/api/modules/' BODY: {'title', 'content', 'image_url'}
+DELETE '/api/modules/' BODY: {'_id', _id}
+
+POST '/api/login' BODY: {'email', 'pass'} -- Sets cookie if user credentials are correct
+
+
 Models
 * Users (Gonna just use the same code from the treasurer site) - Done
 * Modules - Done
@@ -33,9 +66,6 @@ Models
     - Name
     - Email
     - Year in School
-
-
-TODO: We need to authenticate all non-get api endpoints before launch.
 
 [Angular Best Practices](https://github.com/johnpapa/angular-styleguide)
 
