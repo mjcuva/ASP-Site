@@ -1,8 +1,5 @@
 body {
   height: 100vh;
-  background-size: 100%;
-  background-image: url('/images/WR_Seal.jpg');
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -10,6 +7,69 @@ a {
   color: #00B7FF;
 }
 
-#nav-bar{
-	float: right;
+#nav{
+	height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #C41E3A;
+    box-shadow: 0 0 3px #000;
+    padding-left: 25px;
+    z-index: 1;
+}
+
+#nav ul{
+    list-style-type: none;
+    display: inline;
+}
+
+#nav li{
+    display: inline;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+}
+
+#nav .navItem {
+    line-height: 50px;
+    padding: 10px;
+    font-size: 17px;
+}
+
+#navTitle {
+    font-size: 30px;
+    color: white;
+    line-height: 50px;
+}
+
+#hero {
+    height: 95vh;
+    overflow: hidden;
+}
+
+#mask {
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    background-color: rgba(196, 30, 58, 0.4);
+}
+
+#heroImg {
+    width: 100%;
+    margin-top: -200px;
+}
+
+#titleText {
+    font-size: 60px;
+    color: white;
+    opacity: 1;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 100px;
+    text-shadow: 1px 0px black;
 }

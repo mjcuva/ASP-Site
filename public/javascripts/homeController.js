@@ -5,8 +5,6 @@
 		.controller('homeCtrl', function(){
 			var vm = this;
 
-			vm.test = "Home";
-
 		});
 
 })();

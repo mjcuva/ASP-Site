@@ -16,6 +16,11 @@ angular
             controller: 'brothersCtrl',
             controllerAs: 'brothers'
         }).
+        when('/photos', {
+            templateUrl: 'partials/photos.html',
+            controller: 'photosCtrl',
+            controllerAs: 'photos'
+        }).
         when('/news', {
             templateUrl: 'partials/news.html',
             controller: 'newsCtrl',
