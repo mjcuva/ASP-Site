@@ -5,7 +5,9 @@ var aws = require('aws-sdk');
 var mongoose = require('mongoose');
 var Image = mongoose.model('Image');
 
-require('../config/auth.js');
+if(process.env.ENV != 'PROD'){
+    require('../config/auth.js');
+}
 
 // Return image from name
 router.get('/', function(req, res, next){

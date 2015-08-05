@@ -4,7 +4,9 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-require('../config/auth.js');
+if(process.env.ENV != 'PROD'){
+    require('../config/auth.js');
+}
 
 var nodemailer = require('nodemailer');
 var sprintf = require("sprintf-js").sprintf
