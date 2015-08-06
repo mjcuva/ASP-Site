@@ -23,20 +23,38 @@ a {
     left: 0;
     top: 0;
     width: 100%;
-    background-color: #C41E3A;
-    box-shadow: 0 0 3px #000;
+
     padding-left: 25px;
     z-index: 1;
+}
+
+.red {
+      background-color: #C41E3A;
+      transition: all 0.35s;
+      box-shadow: 0 0 3px #000;
+}
+
+.clear {
+    background-color: transparent;
+    transition: all 0.35s;
+    border-bottom: 1px solid;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 #nav ul{
     list-style-type: none;
     display: inline;
+
+     /*Clear nav */
+    float: right;
+    margin-right: 30px;
 }
 
 #nav li{
     display: inline-block;
-    line-height: 50px;
+    
+    /* ON 
+    /*line-height: 50px;*/
 }
 
 #nav a {
@@ -57,7 +75,7 @@ a {
 }
 
 #hero {
-    height: 95vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -70,7 +88,7 @@ a {
 
 #hero-img {
     width: 100%;
-    margin-top: -200px;
+    margin-top: -150px;
 }
 
 #title-text {
