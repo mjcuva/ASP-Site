@@ -6,6 +6,7 @@
     <script src="/jquery/dist/jquery.js"></script>
     <script src='/angular/angular.js'></script>
     <script src="/angular-route/angular-route.js"></script>
+    <script src='/angular-cookies/angular-cookies.js'></script>
     
     <script type="text/javascript" src='/dist/all.js'></script>
     <link rel='stylesheet' href='/dist/style.css' />
@@ -20,6 +21,8 @@
               <li><a class='navItem' href="/news">News</a></li>
               <li><a class='navItem' href="/photos">Photos</a></li>
               <li><a class='navItem' href="/brothers">Brothers</a></li>
+              <li class='hide' id='adminLink'><a class='navItem' href='/admin'>Admin</a></li>
+              <li class='hide' id='logoutLink'><a class='navItem' href='/logout'>Logout</a></li>
           </ul>
       </div>
       <div ng-view></div>

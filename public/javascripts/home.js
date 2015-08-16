@@ -11,4 +11,15 @@ $(document).ready(function(){
             }
         });
     }
+
+
+    $.ajax({
+        url: '/api/login', 
+    }).done(function(res){
+        if(res === true){
+            $('#adminLink').removeClass('hide');
+            $('#logoutLink').removeClass('hide');
+        }
+    });
+
 });

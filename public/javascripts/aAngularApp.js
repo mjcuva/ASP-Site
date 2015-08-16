@@ -2,7 +2,7 @@ angular
     .module('ASPControllers', []);
 
 angular
-    .module('asp', ['ngRoute', 'ASPControllers'])
+    .module('asp', ['ngRoute', 'ngCookies', 'ASPControllers'])
     .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){
         $routeProvider.
@@ -25,6 +25,16 @@ angular
             templateUrl: 'partials/news.html',
             controller: 'newsCtrl',
             controllerAs: 'news'
+        }).
+        when('/login', {
+            templateUrl: 'partials/login.html',
+            controller: 'loginCtrl',
+            controllerAs: 'login'
+        }).
+        when('/logout', {
+            templateUrl: 'partials/home.html',
+            controller: 'logoutCtrl',
+            controllerAs: 'logout'
         }).
         otherwise({
             redirectTo: '/'

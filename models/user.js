@@ -29,7 +29,8 @@ UserSchema.statics.createAccount = function(u, cb){
                 var user = new User(u);
             }
 
-            if(u.pwset == false){
+            // TODO: Test this
+            if(u.pwset == false && u.pw_hash != undefined){
                 user.pw_hash = passwordHash.generate(u.pw_hash);
                 user.pwset = true;
             }  
@@ -47,7 +48,6 @@ UserSchema.statics.createAccount = function(u, cb){
 
 UserSchema.statics.login = function(email, pass, cb){
     this.findByEmail(email, function(err, user){
-        user = users[0];
         if(err || user === null){ 
             cb("Incorrect login", null, null);
         }else if(user.pwset == false){

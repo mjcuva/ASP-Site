@@ -1,0 +1,12 @@
+<link rel="stylesheet" type="text/css" href="/dist/login.css">
+
+<div id='loginMain'>
+    <h1>ΑΣΦ</h1>
+    <h2>Rho Colony</h2>
+    <form method='post'>
+        <input ng-model='login.email' type="email" name='email' placeholder='Email'><br>
+        <input ng-model='login.pass' type='password' name='pass' placeholder='Password'><br>
+        <button type='submit' ng-click='login.login()'>Login</button>
+        <div  ng-show='login.error' id='error'>{{login.error}}</div>
+    </form>
+</div>

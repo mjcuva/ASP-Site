@@ -7,7 +7,15 @@ var User = mongoose.model('User');
 var url = require("url");
 
 router.get('/', function(req, res){
-    res.render('login', {error: ""});
+
+    if(req.headers.cookie){
+        var cookieData = req.headers.cookie.split('=')[1];
+        User.LoggedIn(cookieData, function(loggedin){
+            res.send(loggedin);
+        });
+    }else{
+        res.send(false);
+    }
 });
 
 router.post('/', function(req, res, next){
@@ -17,11 +25,11 @@ router.post('/', function(req, res, next){
     User.login(email, pass, function(err, user, hash){
         if(err == "Password needs to be set."){
             // TODO: Redirect to password set page
+            res.status(302).send(err);
         }else if(err){
-            res.render('login', {error: err});
+            res.status(302).send(err);
         }else{
-            res.cookie('u', hash);
-            res.redirect("/");
+            res.send(hash);
         }
     });
 });
