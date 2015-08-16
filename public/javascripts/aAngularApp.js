@@ -36,6 +36,11 @@ angular
             controller: 'logoutCtrl',
             controllerAs: 'logout'
         }).
+        when('/admin', {
+            templateUrl: 'partials/admin.html',
+            controller: 'adminCtrl',
+            controllerAs: 'admin'
+        }).
         otherwise({
             redirectTo: '/'
         });

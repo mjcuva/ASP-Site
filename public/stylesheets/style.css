@@ -208,3 +208,7 @@ form button:hover {
 .hide {
     display: none !important;
 }
+
+#adminMain {
+    margin-top: 60px;
+}

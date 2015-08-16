@@ -9,7 +9,11 @@ router.get('/', function(req, res, next){
         if(err){
             res.send(err);
         }else{
-            res.json(pnms);
+            var response = [];
+            for(var i in pnms){
+                response.push({name: pnms[i].name, email: pnms[i].email});
+            }
+            res.json(response);
         }
     });
 });

@@ -1,0 +1,24 @@
+<div id="adminMain">
+    <div id="pnmBox">
+        <h1>PNMs</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr ng-repeat='pnm in admin.pnms'>
+                <td>{{pnm.name}}</td>
+                <td>{{pnm.email}}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id='moduleBox'>
+        <h1>Main Page Content</h1>
+        <table>
+            <tr ng-repeat='module in admin.modules'>
+                <td>{{module}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
