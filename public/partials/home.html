@@ -25,9 +25,9 @@
 		<div id="email-text">
 			Interested in joining? Let us know!
             <form id='contactInfo'>
-                <label for='name'>Name: </label><input id='pnmName' name='name' type='text'><br>
-                <label for='email'>Email: </label><input id='pnmEmail' name='email' type='email'><br>
-                <button>Submit</button>
+                <label for='name'>Name: </label><input ng-model='home.PNMName' id='pnmName' name='name' type='text'><br>
+                <label for='email'>Email: </label><input ng-model='home.PNMEmail' id='pnmEmail' name='email' type='email'><br>
+                <button ng-click="home.addPNM()">Submit</button>
             </form>
 		</div>
 	</div>
