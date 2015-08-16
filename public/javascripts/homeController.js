@@ -17,5 +17,9 @@
                     });
             };
 
+
+            $('#nav').removeClass('red');
+            $('#nav').addClass('clear');
+
 		}]);
 })();
