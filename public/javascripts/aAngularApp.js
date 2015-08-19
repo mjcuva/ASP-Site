@@ -41,6 +41,11 @@ angular
             controller: 'adminCtrl',
             controllerAs: 'admin'
         }).
+        when('/admin/gallery', {
+            templateUrl: 'partials/galleryAdmin.html',
+            controller: 'galleryAdminCtrl',
+            controllerAs: 'galleryAdmin'
+        }).
         otherwise({
             redirectTo: '/'
         });

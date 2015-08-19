@@ -210,5 +210,17 @@ form button:hover {
 }
 
 #adminMain {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
     margin-top: 60px;
+    width: 90%;
+}
+
+#adminMain table {
+    margin: 0 auto;
+}
+
+#adminMain table td {
+    padding: 10px 30px;
 }

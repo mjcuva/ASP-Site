@@ -21,4 +21,18 @@
             </tr>
         </table>
     </div>
+
+    <div id='galleryBox'>
+        <h1>Galleries</h1><button ng-click='admin.addGallery()'>Add Gallery</button><br><br>
+        <table>
+            <tr>
+                <th>Gallery Name</th>
+            </tr>
+            <tr ng-repeat='gallery in admin.galleries'>
+                <td>{{gallery.name}}</td>
+                <td><a href='/admin/gallery?_id={{gallery._id}}'>Edit</a></td>
+                <td><a href='#' ng-click='admin.deleteGallery(gallery._id)'>Delete</a></td>
+            </tr>
+        </table>
+    </div>
 </div>

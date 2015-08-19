@@ -15,7 +15,7 @@ router.get('/', function(req, res){
     });
 });
 
-// /gallery?id=_id
+// /gallery?_id=_id
 router.get('/gallery', function(req, res){
     var id = req.query._id;
     if(id == null){
@@ -97,7 +97,7 @@ router.post('/addimage', function(req, res){
 
 // Delete gallery
 router.delete('/', function(req, res){
-    var galleryID = req.body.galleryID;
+    var galleryID = req.query.galleryID;
     if(galleryID == null){
         res.status(400).send("Missing gallery id");
     }else{

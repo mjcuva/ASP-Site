@@ -5,7 +5,8 @@
         .controller('photosCtrl', function(){
             var vm = this;
 
-            vm.test = "Photos";
+            $('#nav').removeClass('clear');
+            $('#nav').addClass('red');
 
         });
 
