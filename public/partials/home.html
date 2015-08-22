@@ -3,23 +3,18 @@
         <div id='mask'><div id='title-text'>Alpha Sigma Phi - Rho Colony<br>Better the World through Better Men</div></div>
             <img id='hero-img' src='images/initiation.jpg'>  
     </div>
-    <div class="paragraph-wrapper">
-    	<div class="text">
-    		Lorem ipsum dolor sit amet, soleat conceptam in per, accommodare reprehendunt ius id. Id essent dictas vel. Ad quodsi maiestatis duo, eum cu modus vocibus. Qui eu mollis delenit, cum labore persequeris eu, eam ne viris commodo euripidis. Ut dolor rationibus eam, facer equidem mei at.
-            <br><br>
-			Sea no hinc animal bonorum, porro deleniti imperdiet ei sea. Ne utamur aliquid nam, eros reque assum no cum, an vis brute falli. Modo integre duo te, ne laoreet principes inciderint ius, appetere definitiones in sit. Quo id atqui comprehensam, solum ipsum imperdiet at per, et ius rebum blandit. Ancillae adipisci quo et, impetus indoctum duo ad.
-		</div>
-		<img class="image" src="images/RW_Seal.jpg">
-	</div>
 
-	<div class="paragraph-wrapper">
-		<img class="image" src="images/RW_Seal.jpg">
-    	<div class="text">
-    		Lorem ipsum dolor sit amet, soleat conceptam in per, accommodare reprehendunt ius id. Id essent dictas vel. Ad quodsi maiestatis duo, eum cu modus vocibus. Qui eu mollis delenit, cum labore persequeris eu, eam ne viris commodo euripidis. Ut dolor rationibus eam, facer equidem mei at.
-            <br><br>
-			Sea no hinc animal bonorum, porro deleniti imperdiet ei sea. Ne utamur aliquid nam, eros reque assum no cum, an vis brute falli. Modo integre duo te, ne laoreet principes inciderint ius, appetere definitiones in sit. Quo id atqui comprehensam, solum ipsum imperdiet at per, et ius rebum blandit. Ancillae adipisci quo et, impetus indoctum duo ad.
-		</div>
-	</div>
+    <div class='modules' ng-repeat='module in home.modules'>
+        <div class='paragraph-wrapper' ng-class-even='"hide"'>
+            <div class='text'>{{module.content}}</div>
+            <img class='image' ng-src='{{module.image.url}}'>
+        </div>
+        <div class='paragraph-wrapper' ng-class-odd='"hide"'>
+            <img class='image' ng-src='{{module.image.url}}'>
+            <div class='text'>{{module.content}}</div>
+        </div>
+    </div>
+
 	<div id="email">
         <img id='emailBackgroundImage' src='images/main-blur.jpg'>
 		<div id="email-text">

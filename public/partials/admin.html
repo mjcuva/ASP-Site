@@ -19,6 +19,7 @@
             <tr ng-repeat='module in admin.modules'>
                 <td>{{module.title}}</td>
                 <td><a href='/admin/module?title={{module.title}}'>Edit</a></td>
+                <td><a href='' ng-click='admin.deleteModule(module._id)'>Delete</a>
             </tr>
         </table>
     </div>

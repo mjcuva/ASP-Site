@@ -245,3 +245,7 @@ form button:hover {
     max-width: 200px;
     max-height: 200px;
 }
+
+.hide {
+    display: none;
+}

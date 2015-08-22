@@ -26,6 +26,16 @@
             }
         };
 
+        vm.deleteModule = function(id){
+            $http.delete('/api/modules', {params: {'_id': id}}).then(function(response){
+                if(response.data == 'Deleted'){
+                    vm.modules = vm.modules.filter(function(module){
+                        return module._id != id;
+                    });
+                }
+            });
+        };
+
         vm.deleteGallery = function(id){
             console.log(id);
             $http.delete('/api/galleries', {params: {'galleryID': id}}).then(function(response){

@@ -6,7 +6,7 @@ var Module = mongoose.model('Module');
 var Image = mongoose.model('Image');
 
 router.get('/', function(req, res){
-    Module.find(function(err, modules){
+    Module.find({}).populate('image').exec(function(err, modules){
         if(err){
             res.status(500).send(err);
         }else{
@@ -39,19 +39,29 @@ router.post('/', function(req, res){
         }else if(image == null){
             res.status(404).send("Image not found.");
         }else{
-            var module = new Module();
-            module.title = title;
-            module.content = content;
-            module.image = image;
-            module.save();
-            res.send(module);
+            Module.findOne({title:title}, function(err, module){
+                if(module === null){
+                    var module = new Module();
+                    module.title = title;
+                    module.content = content;
+                    module.image = image;
+                    module.save();
+                    res.send(module);
+                }else{
+                    module.content = content;
+                    module.image = image;
+                    module.save();
+                    res.send(module);
+                }
+            });
+            
         }
     }); 
 });
 
 
 router.delete('/', function(req, res){
-    var id = req.body._id;
+    var id = req.query._id;
     Module.findOne({_id:id}, function(err, module){
         if(err){
             res.status(500).send(err);
