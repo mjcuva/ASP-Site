@@ -2,7 +2,7 @@ angular
     .module('ASPControllers', []);
 
 angular
-    .module('asp', ['ngRoute', 'ngCookies', 'ASPControllers'])
+    .module('asp', ['ngRoute', 'ngCookies', 'ASPControllers', 'flow'])
     .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){
         $routeProvider.

@@ -46,13 +46,13 @@
                 vm.galleries = response.data;
             });
 
-            fixNav();
-            
+            fixNav();  
 
         }]);
 
         angular.module('ASPControllers')
             .controller('galleryAdminCtrl', ['$routeParams', '$http', function($routeParams, $http){
+                
                 var vm = this;
 
                 vm.gallery = undefined;
@@ -61,8 +61,16 @@
 
                 };
 
-                vm.addImages = function(){
-
+                vm.addImages = function($files, $event, $flow){
+                    
+                    for(var i in $files){
+                        (function(file) {
+                            $http.get('/api/images/sign_s3?file_name=' + file.name + '&file_type=image/jpeg').then(function(response){
+                                upload_file(file.file, response.data.signed_request, response.data.url, file.name);
+                            });
+                        })($files[i]);
+                        
+                    }
                 };
 
                 var _id = $routeParams._id;
@@ -71,8 +79,26 @@
                     vm.gallery = response.data;
                 });
 
-                fixNav();
+                function upload_file(file, signed_request, file_url, file_name){
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("PUT", signed_request);
+                    xhr.setRequestHeader('x-amz-acl', 'public-read');
+                    xhr.onload = function(response) {
+                        if (xhr.status === 200) {
+                            $http.post('/api/images/', {name: file_name, url: file_url}).then(function(response){
+                                $http.post('/api/galleries/addimage', {imageUrl: response.data.url, galleryName: vm.gallery.name}).then(function(response){
+                                    console.log(response);
+                                });
+                            });
+                        }
+                    };
+                    xhr.onerror = function() {
+                        console.log("Could not upload file.");
+                    };
+                    xhr.send(file);
+                };
 
+                fixNav();
 
             }]);
 })();

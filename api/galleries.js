@@ -6,7 +6,7 @@ var Gallery = mongoose.model('Gallery');
 var Image = mongoose.model('Image');
 
 router.get('/', function(req, res){
-    Gallery.find(function(err, galleries){
+    Gallery.find().populate('images').exec(function(err, galleries){
         if(err){
             res.status(500).send(err);
         }else{
@@ -21,7 +21,7 @@ router.get('/gallery', function(req, res){
     if(id == null){
         res.status(400).send('Missing gallery id');
     }else{
-        Gallery.findOne({_id:id}, function(err, gallery){
+        Gallery.findOne({_id:id}).populate('images').exec(function(err, gallery){
             if(err){
                 res.status(500).send(err);
             }else{

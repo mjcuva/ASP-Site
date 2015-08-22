@@ -1,5 +1,20 @@
 <div id="adminMain">
-    Title: <input type='text' ng-model='galleryAdmin.gallery.name'>
-    <button ng-click='galleryAdmin.addImages()'>Add Images</button>
-    <button ng-click='galleryAdmin.save()'>Save</button>
+    Title: <input type='text' ng-model='galleryAdmin.gallery.name'><button ng-click='galleryAdmin.save()'>Save</button>
+    
+    <div id='imageUpload' flow-init flow-files-submitted="galleryAdmin.addImages($files, $event, $flow)">
+        <input type="file" flow-btn/>
+
+        <table>
+            <tr ng-repeat="file in $flow.files">
+                <td>{{$index+1}}</td>
+                <td>{{file.name}}</td>
+                <td>
+                    <div class='imgWrapper'>
+                        <img class='imgPreview' flow-img="file" />
+                    </div>
+                </td>
+            </tr>
+          </table>
+
+    </div>
 </div>

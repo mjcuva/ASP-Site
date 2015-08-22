@@ -30,7 +30,8 @@
     "sprintf-js": "^1.0.2",
     "aws-sdk": "^2.1.40",
     "jquery": "^2.1.4",
-    "angular-cookies": "^1.4.4"
+    "angular-cookies": "^1.4.4",
+    "ng-flow": "^2.1.4"
   },
   "devDependencies": {
     "should": "^7.0.2",
