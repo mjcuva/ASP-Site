@@ -14,10 +14,11 @@
     </div>
     
     <div id='moduleBox'>
-        <h1>Main Page Content</h1>
+        <h1>Main Page Content</h1><button ng-click='admin.addModule()'>Add Module</button><br><br>
         <table>
             <tr ng-repeat='module in admin.modules'>
-                <td>{{module}}</td>
+                <td>{{module.title}}</td>
+                <td><a href='/admin/module?title={{module.title}}'>Edit</a></td>
             </tr>
         </table>
     </div>

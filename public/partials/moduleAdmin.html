@@ -1,0 +1,10 @@
+<div id='adminMain'>
+    Title (Not displayed on site): <input type='text' ng-model='moduleAdmin.module.title'><br>
+    <div id='imageUpload' flow-init flow-files-submitted='moduleAdmin.addImage($files, $event, $flow)'>
+        <input type='file' flow-btn>
+    </div>
+    <textarea ng-model='moduleAdmin.module.content'></textarea>
+    <img class='galleryImg' ng-show='moduleAdmin.module.image' ng-src='{{moduleAdmin.module.image}}'><br>
+    <button ng-click='moduleAdmin.save()'>Save Module</button>
+    <div ng-show='moduleAdmin.error' id='error'>{{moduleAdmin.error}}</div>
+</div>

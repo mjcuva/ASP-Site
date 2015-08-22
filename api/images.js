@@ -16,7 +16,12 @@ router.get('/', function(req, res, next){
         res.send("Missing image name.");
     }else{
         Image.findOne({name: image_name}, "name url", function(err, image){
-            res.json({'name': image.name, 'url':image.url});
+            console.log(image);
+            if(image === null){
+                res.status(404).send("Image not found");
+            }else{
+                res.json({'name': image.name, 'url':image.url});
+            }
         });
     }
 });

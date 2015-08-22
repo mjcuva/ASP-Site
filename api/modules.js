@@ -15,6 +15,19 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/module', function(req, res){
+    var title = req.query.title;
+    Module.findOne({title: title}).populate('image').exec(function(err, module){
+        if(err){
+            res.status(500).send(err);
+        }else if(module == undefined){
+            res.json([]);
+        }else{
+            res.json(module);
+        }
+    });
+});
+
 router.post('/', function(req, res){
     var title = req.body.title;
     var content = req.body.content;

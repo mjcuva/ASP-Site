@@ -74,6 +74,16 @@ describe('Modules', function(){
         });
     });
 
+    it('Should get one module', function(done){
+        request(app)
+        .get('/api/modules/module?title=test')
+        .end(function(err, res){
+            res.status.should.equal(200);
+            res.body.title.should.equal('test');
+            done();
+        });
+    });
+
     it('Should delete module', function(done){
         request(app)
         .get('/api/modules')
