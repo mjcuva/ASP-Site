@@ -96,7 +96,7 @@
                     });
                 });
             });
-        }
+        };
 
         var _id = $routeParams._id;
 
@@ -139,7 +139,6 @@
                     var url = response.data.url;
                     upload_file(file.file, response.data.signed_request, function(response){
                         $http.post('/api/images/', {name: file.name, url: url}).then(function(response){
-                            console.log('here')
                             $timeout(function(){
                                 vm.module.image = url;
                             });

@@ -1,5 +1,6 @@
 $(document).ready(function(){
     if(document.location.pathname === '/'){
+
         $(document).scroll(function(){
             var scrollPos = document.body.scrollTop;
             if(scrollPos > ($('#hero').height() - $('#nav').height() - 200)){
@@ -9,6 +10,7 @@ $(document).ready(function(){
                 $('#nav').removeClass('red');
                 $('#nav').addClass('clear');
             }
+
         });
     }
 
@@ -22,4 +24,23 @@ $(document).ready(function(){
         }
     });
 
+});
+
+$(window).on('resize', function(){
+    fixHeroTimeout(500);
+});
+
+function fixHero(){
+    console.log('fixHero');
+  $('#hero').height($('#hero-img').height() - 150);
+}
+
+var id;
+function fixHeroTimeout(timeout){
+    clearTimeout(id);
+    id = setTimeout(fixHero, timeout);
+}
+
+$(window).on('load', function(){
+    fixHeroTimeout(50);
 });
