@@ -91,8 +91,7 @@ describe('Modules', function(){
             res.status.should.equal(200);
             var id = res.body[0]._id;
             request(app)
-            .delete('/api/modules')
-            .send({'_id':id})
+            .delete('/api/modules?_id=' + id)
             .end(function(err, res){
                 res.status.should.equal(200);
                 res.text.should.equal('Deleted');

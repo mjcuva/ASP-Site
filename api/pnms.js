@@ -40,10 +40,12 @@ router.post('/', function(req, res, next){
 });
 
 router.delete('/', function(req, res, next){
-    var id = req.body.id;
-    PNM.findOne({_id:id}, function(err, pnm){
+    var email = req.query.email;
+    PNM.findOne({email:email}, function(err, pnm){
         if(err){
             res.send(err);
+        }else if(pnm == null){
+            res.status(404).send("Pnm not found");
         }else{
             pnm.remove(function(){
                 res.send("Deleted");

@@ -95,17 +95,16 @@ describe('PNMS', function(){
     it("Should delete one pnm", function(done){
         request(app)
         .get('/api/pnms')
-        .expect(200)
         .end(function(err, res){
+            console.log(res.body[0])
+            res.status.should.equal(200);
             request(app)
-            .delete('/api/pnms')
-            .send({'id':res.body[0]._id})
-            .expect(200)
+            .delete('/api/pnms?email=' + res.body[0].email)
             .end(function(err, res){
+                res.status.should.equal(200);
                 res.text.should.equal('Deleted');
                 request(app)
                 .get('/api/pnms')
-                .expect(200)
                 .end(function(err, res){
                     res.body.length.should.equal(1);
                     done();
