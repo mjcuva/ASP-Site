@@ -7,6 +7,8 @@
 
             vm.modules = undefined;
 
+            vm.pnmAdded = false;
+
             vm.addPNM = function(){
                 var name = vm.PNMName;
                 var email = vm.PNMEmail;
@@ -17,6 +19,8 @@
                     }, function(err){
                         console.log(err);
                     });
+
+                vm.pnmAdded = true;
             };
 
             $http.get('/api/modules').then(function(response){

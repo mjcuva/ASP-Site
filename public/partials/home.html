@@ -17,7 +17,7 @@
 
 	<div id="email">
         <img id='emailBackgroundImage' src='images/main-blur.jpg'>
-		<div id="email-text">
+		<div id="email-text" ng-hide='home.pnmAdded'>
 			Interested in joining? Let us know!
             <form id='contactInfo'>
                 <label for='name'>Name: </label><input ng-model='home.PNMName' id='pnmName' name='name' type='text'><br>
@@ -25,5 +25,8 @@
                 <button ng-click="home.addPNM()">Submit</button>
             </form>
 		</div>
+        <div id='email-text' ng-show='home.pnmAdded'>
+            Thank you! A brother will be in touch shortly!
+        </div>
 	</div>
 </div>
