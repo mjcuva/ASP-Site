@@ -160,7 +160,7 @@ a {
     font-size: 30px;
 }
 
-label, input {
+#contactInfo label, #contactInfo input {
     display: inline-block;
     vertical-align: baseline;
     width: 125px;
@@ -172,12 +172,12 @@ form, input {
     -webkit-box-sizing: border-box;
 }
 
-form {
+#contactInfo {
     width: 50%;
     margin: 0 auto;
 }
 
-form input {
+#contactInfo input {
     line-height: 30px;
     /* padding-top: 5px; */
     border-radius: 6px;
@@ -189,7 +189,7 @@ form input {
     padding-left: 20px;
 }
 
-form button {
+#contactInfo button {
     padding: 0.5em 0.2em;
     border-radius: 5px;
     background-color: #C41E3A;
@@ -200,7 +200,7 @@ form button {
     width: 100px;
 }
 
-form button:hover {
+#contactInfo button:hover {
     background-color: rgb(49,8,15);
     cursor: pointer;
 }
@@ -244,8 +244,25 @@ form button:hover {
 .galleryImg {
     max-width: 200px;
     max-height: 200px;
+    margin: 10px;
+}
+
+#imgBlock {
+    margin: 10px;
 }
 
 .hide {
     display: none;
+}
+
+#moduleContent {
+    width: 80%;
+    height: 300px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#saved {
+    margin: 10px;
 }

@@ -1,18 +1,6 @@
 <div id="adminMain">
-    <div id="pnmBox">
-        <h1>PNMs</h1>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-            <tr ng-repeat='pnm in admin.pnms'>
-                <td>{{pnm.name}}</td>
-                <td>{{pnm.email}}</td>
-            </tr>
-        </table>
-    </div>
-    
+
+    <!-- Modules -->
     <div id='moduleBox'>
         <h1>Main Page Content</h1><button ng-click='admin.addModule()'>Add Module</button><br><br>
         <table>
@@ -24,6 +12,7 @@
         </table>
     </div>
 
+    <!-- Galleries -->
     <div id='galleryBox'>
         <h1>Galleries</h1><button ng-click='admin.addGallery()'>Add Gallery</button><br><br>
         <table>
@@ -34,6 +23,21 @@
                 <td>{{gallery.name}}</td>
                 <td><a href='/admin/gallery?_id={{gallery._id}}'>Edit</a></td>
                 <td><a href='#' ng-click='admin.deleteGallery(gallery._id)'>Delete</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PNMS -->
+    <div id="pnmBox">
+        <h1>PNMs</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr ng-repeat='pnm in admin.pnms'>
+                <td>{{pnm.name}}</td>
+                <td>{{pnm.email}}</td>
             </tr>
         </table>
     </div>

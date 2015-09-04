@@ -1,10 +1,18 @@
 <div id='adminMain'>
-    Title (Not displayed on site): {{moduleAdmin.module.title}}<br>
-    <div id='imageUpload' flow-init flow-files-submitted='moduleAdmin.addImage($files, $event, $flow)'>
-        <input type='file' flow-btn>
+    <h2>Title (Not displayed on site): {{moduleAdmin.module.title}}</h2>
+    <textarea id='moduleContent' ng-model='moduleAdmin.module.content'></textarea>
+    <div id='imageUpload' 
+        flow-init 
+        flow-files-submitted='moduleAdmin.addImage($files, $event, $flow)' 
+        flow-file-progress="moduleAdmin.updateProgress( $file, $flow )">
+        New Image: <input type='file' flow-btn>
+
     </div>
-    <textarea ng-model='moduleAdmin.module.content'></textarea>
-    <img class='galleryImg' ng-show='moduleAdmin.module.image' ng-src='{{moduleAdmin.module.image}}'><br>
+    <div ng-show='moduleAdmin.module.image != "//:0"' id='imgBlock'>
+        Current Image: <br>
+        <img class='galleryImg' ng-src='{{moduleAdmin.module.image}}'>
+    </div><br>
     <button ng-click='moduleAdmin.save()'>Save Module</button>
     <div ng-show='moduleAdmin.error' id='error'>{{moduleAdmin.error}}</div>
+    <div ng-show='moduleAdmin.saved' id='saved'>Save Successful!</div>
 </div>

@@ -116,6 +116,10 @@
 
         vm.error = "";
 
+        vm.imageUploaded = false;
+
+        vm.saved = false;
+
         vm.save = function(){
             if(vm.module.title === ""){
                 vm.error = "Must have title";
@@ -123,9 +127,11 @@
                 vm.error = "Must have content";
             }else if(vm.module.image === ""){
                 vm.error = "Must have image";
+            }else if(!vm.imageUploaded && !vm.module.image){
+                vm.error = "Image still uploading... Please wait";
             }else{
                 $http.post('/api/modules', {title: vm.module.title, content: vm.module.content, imageUrl: vm.module.image}).then(function(response){
-                    console.log(response.data);
+                    vm.saved = true;
                 });
             }
         };
@@ -141,6 +147,8 @@
                         $http.post('/api/images/', {name: file.name, url: url}).then(function(response){
                             $timeout(function(){
                                 vm.module.image = url;
+                                vm.imageUploaded = true;
+                                vm.error = "";
                             });
                         });
                     });
