@@ -31,7 +31,6 @@ $(window).on('resize', function(){
 });
 
 function fixHero(){
-    console.log('fixHero');
   $('#hero').height($('#hero-img').height() - 150);
 }
 
